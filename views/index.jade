@@ -1,5 +1,15 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+  head
+    title= title
+  body
+    h1= title
+    ul
+      each message in messages
+        li
+          strong User: #{message.user}
+          br
+          | Text: #{message.text}
+          br
+          | Added: #{message.added.toLocaleString()}
+    a(href='/new') Add a new message
